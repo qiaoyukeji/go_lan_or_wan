@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>内外网判断中转界面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #button {
+            width: 400px;
+            height: 100px;
+            background-color: pink;
+            margin:100px auto;
+        }
+        #button01{
+            width: 300px;
+            height:50px;
+            margin:auto;
+        }
+        #button01 .inner ,#button01 .outter{
+            width: 140px;
+            height: 40px;
+            background-color: rgb(80, 225, 70);
+            /* margin: 5px auto; */
+        }
+        #button02{
+            width: 300px;
+            height:50px;
+            margin:auto;
+        }
+        #button02 .auto{
+            width: 300px;
+            height: 40px;
+            background-color: rgb(80, 225, 70);
+            margin: 5px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="button">
+        <div id="button01">
+            <button class="inner">选择内网访问</button>
+            <button class="outter">选择外网访问</button>
+        </div>
+        <div id="button02">
+            <button class="auto">自动判断</button>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var timeStr = setTimeout(function () {
+            var $img = $('<img src="http://127.0.0.1:5500/2.jpg?' + (new Date()) + '">')
+            $img.appendTo('body').css("display", "none").load(function () {
+                console.log("连接成功！")
+                // window.location.href="http://www.baidu.com"
+                $(this).remove()
+            }).error(function () {
+                console.log("断网了！")
+                // window.location.href="http://www.bilibili.com"
+                $(this).remove()
+            })
+        }, 2000)
+    </script>
+</body>
+
+</html>
