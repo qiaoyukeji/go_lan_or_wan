@@ -91,6 +91,7 @@
         var timeStr = setTimeout(function () {
 
             // 建议此处使用ip，使用域名（解析到内网ip）可能会导致加载时间较长的问题
+            // 此处填写内网的图片地址
             // var $img = $('<img src="http://testimg.file.ahau.site/logo.png?' + (new Date()) + '">')
             var $img = $('<img src="http://172.17.14.177:40001/logo.png?' + (new Date()) + '">')
 
@@ -109,14 +110,17 @@
             if (flag == 1) {
                 console.log(1);
                 // 跳转到内网
+                // 此处填写内网的访问地址
                 window.location.href="http://lan.file.ahau.site"
             } else if (flag == 2) {
                 console.log(2);
                 // 跳转到外网
+                // 此处填写外网的访问地址
                 window.location.href = "http://wan.file.ahau.site"
             } else {
                 console.log(0);
-                // 跳转到外网
+                // 如果访问内网的图片超时，跳转到外网
+                // 此处填写外网的访问地址
                 window.location.href = "http://wan.file.ahau.site"
 
             }
