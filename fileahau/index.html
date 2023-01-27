@@ -89,8 +89,8 @@
         var flag = 0;
         // 利用内网图片 load 后的error事件来判断网络的内外网
         var timeStr = setTimeout(function () {
-            // 打印当前时间
 
+            // 建议此处使用ip，使用域名（解析到内网ip）可能会导致加载时间较长的问题
             // var $img = $('<img src="http://testimg.file.ahau.site/logo.png?' + (new Date()) + '">')
             var $img = $('<img src="http://172.17.14.177:40001/logo.png?' + (new Date()) + '">')
 
